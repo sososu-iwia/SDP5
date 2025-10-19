@@ -1,34 +1,15 @@
-package edu.platform.portal;
+package facade;
 
-import edu.platform.course.Course;
-import java.util.ArrayList;
+import course.Course;
+import model.Student;
+import model.Teacher;
+
 import java.util.List;
 
 public class StudentPortalFacade {
-    private final String studentName;
-    private final List<Course> enrolledCourses = new ArrayList<>();
-
-    public StudentPortalFacade(String studentName) {
-        this.studentName = studentName;
+    public StudentPortalFacade(List<Student> students, List<Teacher> teacherList, List<Course> courses) {
     }
 
-    public void enrollInCourse(Course course) {
-        enrolledCourses.add(course);
-        System.out.println("You have successfully enrolled in: " + course.getTitle());
-    }
-
-    public void startLearning(Course course) {
-        System.out.println("\n--- Starting course: " + course.getTitle() + " ---");
-        course.deliverContent();
-        System.out.println("--- Course in progress ---");
-    }
-
-    public void completeCourse(Course course) {
-        System.out.println("Course completed: " + course.getTitle());
-        System.out.println("Congratulations, " + studentName + "!\n");
-    }
-
-    public List<Course> getEnrolledCourses() {
-        return enrolledCourses;
+    public void startPortal(Student currentStudent) {
     }
 }

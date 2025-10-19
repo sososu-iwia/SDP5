@@ -1,19 +1,26 @@
-package edu.platform.course;
+package course.decorator;
 
-public abstract class CourseDecorator implements Course {
-    protected Course baseCourse;
+import course.component.CourseComponent;
 
-    public CourseDecorator(Course baseCourse) {
-        this.baseCourse = baseCourse;
+public abstract class CourseDecorator implements CourseComponent {
+    protected CourseComponent wrappedCourse;
+
+    public CourseDecorator(CourseComponent course) {
+        this.wrappedCourse = course;
     }
 
     @Override
     public void deliverContent() {
-        baseCourse.deliverContent();
+        wrappedCourse.deliverContent();
     }
 
     @Override
-    public String getTitle() {
-        return baseCourse.getTitle();
+    public String getDescription() {
+        return wrappedCourse.getDescription();
+    }
+
+    @Override
+    public int getCost() {
+        return wrappedCourse.getCost();
     }
 }
